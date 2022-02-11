@@ -61,10 +61,10 @@ kubectl apply -f fraud-service.json -n fraud
  --type=NodePort \
  -o yaml
  
- kubectl get service -o wide
- minikube service fraud-deployment --url -n fraud
+ $ kubectl get service -o wide
+ $ minikube service fraud-deployment --url -n fraud
  
- $minikube ip
+ $ minikube ip
 ```
 ### Python API Request
 ```python
