@@ -50,20 +50,21 @@ kubectl apply -f fraud-namespace.yaml -n fraud
 kubectl apply -f flask-pod.yaml -n fraud
 
 kubectl apply -f fraud-deployment.yaml -n fraud
-kubectl apply -f fraud-service.yaml -n fraud
 kubectl apply -f fraud-service.json -n fraud
 ```
 ### Expose Service to outside world
 ```shell
  kubectl expose deployment fraud-deployment \
- --port 23321 \
+ --port 1957 \
  --target-port 23321 \
  --type=NodePort \
- -o yaml
+ -o yaml > fraud-service.yaml
+ 
+ kubectl apply -f fraud-service.yaml -n fraud
  
  $ kubectl get service -o wide
- $ minikube service fraud-deployment --url -n fraud
  
+ $ minikube service fraud-deployment --url -n fraud
  $ minikube ip
 ```
 ### Python API Request
