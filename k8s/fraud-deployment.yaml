@@ -23,13 +23,13 @@ spec:
       containers:
         - image:  worldbosskafka/fraud:1.0.2
           name:  fraud
-#          resources:
-#            limits:
-#              cpu: "50m"
-#              memory: "100M"
-#            requests:
-#              cpu: "20m"
-#              memory: "55M"
+          resources:
+            limits:
+              cpu: "1Gi"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5Gi"
+              memory: "500Mi"
           ports:
             - containerPort:  23321
 
