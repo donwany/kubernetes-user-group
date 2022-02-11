@@ -43,7 +43,8 @@ kubectl run fraud \
 kubectl create deployment fraud-deployment \
 --image=worldbosskafka/fraud:1.0.2 \
 --port=23321 -n fraud \
---dry-run=client -o yaml
+--dry-run=client \
+-o yaml > fraud-deployment.yaml
 
 kubectl apply -f fraud-namespace.yaml -n fraud
 kubectl apply -f flask-pod.yaml -n fraud
