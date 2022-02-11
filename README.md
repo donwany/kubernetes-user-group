@@ -65,6 +65,7 @@ kubectl apply -f fraud-service.json -n fraud
  $ kubectl get service -o wide
  
  $ minikube service fraud-deployment --url -n fraud
+   You should get: http://192.168.205.3:30932
  $ minikube ip
 ```
 ### Python API Request
