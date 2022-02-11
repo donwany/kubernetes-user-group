@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fraud
+  name: fraud-deployment
+  namespace: fraud
+spec:
+  ports:
+    - port: 23321
+      protocol: TCP
+      targetPort: 23321
+  selector:
+    app: fraud
+  type: LoadBalancer

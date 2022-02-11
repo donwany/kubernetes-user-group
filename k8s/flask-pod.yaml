@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: fraud
+  name: fraud
+  namespace: fraud
+spec:
+  containers:
+    - image: worldbosskafka/fraud:1.0.2
+      name: fraud
+      ports:
+        - containerPort: 23321
+      resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
