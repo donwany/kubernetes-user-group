@@ -63,6 +63,8 @@ kubectl apply -f fraud-service.json -n fraud
  
  kubectl get service -o wide
  minikube service fraud-deployment --url -n fraud
+ 
+ $minikube ip
 ```
 ### Python API Request
 ```python
