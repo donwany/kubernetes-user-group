@@ -40,6 +40,11 @@ kubectl run fraud \
 --port=5000 \
 -o yaml > flask-pod.yaml
 
+kubectl create deployment fraud-deployment \
+--image=worldbosskafka/fraud:1.0.2 \
+--port=23321 -n fraud \
+--dry-run=client -o yaml
+
 kubectl apply -f fraud-namespace.yaml -n fraud
 kubectl apply -f flask-pod.yaml -n fraud
 
@@ -49,7 +54,7 @@ kubectl apply -f fraud-service.json -n fraud
 ```
 ### Expose Service to outside world
 ```shell
- kubectl expose pod fraud-deployment \
+ kubectl expose deployment fraud-deployment \
  --port 23321 \
  --target-port 23321 \
  --type=NodePort \
