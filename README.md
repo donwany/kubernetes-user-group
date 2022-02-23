@@ -68,11 +68,43 @@ kubectl apply -f fraud-service.json -n fraud
    You should get: http://192.168.205.3:30932
  $ minikube ip
 ```
+### ConfigMap and Secrets
+```shell
+kubectl apply -f config-as-env.yaml
+kubectl apply -f config-as-volume.yaml
+
+kubectl create secret generic test-secret \
+--from-literal='username=my-app' \
+--from-literal='password=39528$vdg7Jb'
+
+kubectl create configmap special-config --from-literal=accra.ghana=sad
+
+kubectl create configmap game-config-1 --from-file=game.properties
+kubectl create configmap game-config-2 --from-file=ui.properties
+kubectl create configmap game-config-all --from-file=game.properties --from-file=ui.properties
+```
+
+### MongoDB-MongoExpress
+```shell
+kubectl exec -it <POD_NAME> -- sh
+kubectl expose deployment <DEPLOYMENT_NAME>
+
+mongo -u $MONGO_INITDB_ROOT_USERNAME -p $MONGO_INITDB_ROOT_PASSWORD
+
+show databases;
+use <DB_NAME>;
+show collection;
+db.<COLLECTION_NAME>.find({}).pretty();
+db.<COLLECTION_NAME>.insert({})
+
+```
+
+
 ### Python API Request
 ```python
 import requests
 
-url = "http://192.168.1.245:23321/fraud"
+url = "http://104.154.48.66/fraud"
 
 payload = {}
 headers = {}
