@@ -1,0 +1,10 @@
+GET http://192.168.205.3:30932/fraud
+Accept: application/json
+
+
+
+
+
+
+
+
