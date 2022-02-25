@@ -100,6 +100,8 @@ db.<COLLECTION_NAME>.insert({})
 ```
 ### Persistent Volume and Persistent Volume Claim
 ```shell
+##### - check path for files: *kubernetes-user-group/k8s/k8s-volumes/* #########
+
 kubectl apply -f pv-volume.yaml
 kubectl apply -f pv-claim.yaml
 kubectl apply -f pv-pod.yaml
