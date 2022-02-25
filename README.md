@@ -98,7 +98,22 @@ db.<COLLECTION_NAME>.find({}).pretty();
 db.<COLLECTION_NAME>.insert({})
 
 ```
+### Persistent Volume and Persistent Volume Claim
+```shell
+kubectl apply -f pv-volume.yaml
+kubectl apply -f pv-claim.yaml
+kubectl apply -f pv-pod.yaml
 
+kubectl exec -it task-pv-pod -- bash
+
+echo "Hello PV and PVC" > /usr/share/nginx/html/index.html
+
+kubectl port-forward pod/task-pv-pod 5000:80
+  ###### - don't close this terminal #########
+
+check your browser:
+http://127.0.0.1:5000
+```
 
 ### Python API Request
 ```python
